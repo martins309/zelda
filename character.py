@@ -1,10 +1,13 @@
 import random
 
 class Character:
-    def __init__(self, health, power):
+    def __init__(self, health, power, default_weapon, default_gold):
         self.health = health
         self.power = power
         self.isalive = True
+        self.weapon = default_weapon
+        self.gold = default_gold
+        self.inventory = ['a', 's', 'w', 'd']
 
     def alive(self):
         if self.health < 1:
