@@ -20,7 +20,7 @@ def main():
         selection = input()
         if selection == '1':
             print('You go to battle!')
-            status = battle()
+            status = battle(hero)
         elif selection == '2':
             print('You go to the shop!')
             shop()

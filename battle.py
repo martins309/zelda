@@ -8,10 +8,9 @@ from enemy_select import enemy_select
 
 import random
 
-def battle():
+def battle(hero):
     enemy = enemy_select()
     print(enemy.isalive)
-    from run import hero
     while enemy.isalive == True and hero.isalive == True:
         hero.print_status()
         enemy.print_status()
