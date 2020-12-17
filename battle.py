@@ -4,9 +4,11 @@ from classes import Medic
 from enemies import Goblin
 from enemies import Shadow
 from enemies import Zombie
+from enemy_select import enemy_select
+
 import random
 
-def battle():
+def battle(hero):
     enemy = enemy_select()
     print(enemy.isalive)
     while enemy.isalive == True and hero.isalive == True:
@@ -20,7 +22,7 @@ def battle():
         print("> ",)
         user_input = input()
         if user_input == "1":
-            hero.attack(enemy)
+            hero.attack(enemy, hero, enemy)
         elif user_input == "2":
             pass
         elif user_input == "3":
@@ -28,10 +30,12 @@ def battle():
             break
         else:
             print("Invalid input %r" % user_input)
+
         if enemy.isalive == True:
-            enemy.attack(hero)
+            enemy.attack(hero, hero, enemy)
         
         if hero.alive == False:
             return "dead"
 
         print()
+        
