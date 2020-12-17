@@ -24,8 +24,10 @@ def main():
             print('You go to battle!')
             status = battle(hero)
         elif selection == '2':
+            wgi = shop(hero.gold, hero.inventory)
+            hero.gold = wgi[0]
+            hero.inventory = wgi[1]
             print('You go to the shop!')
-            shop()
         elif selection == '3':
             wgi = inventory(hero.weapon, hero.gold, hero.inventory)
             hero.weapon = wgi[0]

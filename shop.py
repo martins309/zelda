@@ -1,61 +1,39 @@
 # Weapons Setup
 from character import Character
-from classes import Warrior
-from classes import Medic
+from weapons import Weapons
+from weapons import Sword
+from weapons import Axe
+from weapons import Golden_Bow
 
 # class shop applies to all weapons
-def shop():
-    sword = sword()
-    axe = axe()
-    bow = bow()
-class weapons_selection():
-    def __init__(weapons_selection, sword, axe, bow):
+def weapons_selection():
+    return Sword, Axe, Golden_Bow
 
-# Define each weapon and its attack damage
-class sword(weapons_selection):
-    def __init__(weapon_selection, status_effects = 8):
-        weapon_selection.weapon = "Axe"
-        weapon_selection.status_effects = status_effects
-        return "A lightweight battle Axe"
-
-    def __init__(weapon_selection, status_effects = 10):
-        weapon_selection.weapon = "sword"
-        weapon_selection.status_effects = status_effects
-        return "A battle sword"
-class Axe(weapons_selection):
-    def __init__(weapon_selection, status_effects = 8):
-        weapon_selection.weapon = "Axe"
-        weapon_selection.status_effects = status_effects
-        return "A lightweight battle Axe"
-
-class Bow(weapons_selection):
-    def __init__(self, weapon, status_effects = 6):
-        weapon_selection.weapon = "Bow"
-        weapon_selection.status_effects = status_effects
-        return "A Golden Bow"
-
-
-# Objects
-
-class weapons_selection:
-    def weapons_selection():
-        def __init__(weapons_selection, sword, axe, bow):
-            while True:
-                print("Select your choice of weapon!")
-                print("1. Sword")
-                print("2. Axe")
-                print("3.Golden Bow")
-                selection = input()
-            if selection == "1":
-                print("You chose the Sword!")
-                return Sword(10)
-            elif selection == "2":
-                print("You chose the Axe!")
-                return Axe(8)
-            elif selection == "3":
-                print("You chose the Bow")
-                return Bow(6)
-           
+def shop(gold, inventory):
+    while True:
+        print("Current Gold: {}".format(gold))
+        print("Select your choice of weapon! (type exit to leave)")
+        print("1. Sword, 10 gold")
+        print("2. Axe, 20 gold")
+        print("3. Golden Bow, 50 gold")
+        selection = input()
+        if selection == "1" and gold >= 10:
+            print("You bought the Sword for 10 gold")
+            inventory.append(Sword)
+            gold -= 10
+        elif selection == "2" and gold >= 20:
+            print("You bought the Axe for 20 gold!")
+            inventory.append(Axe)
+            gold -= 20
+        elif selection == "3" and gold >= 50:
+            print("You bought the Golden Bow for 50 gold!")
+            inventory.append(Golden_Bow)
+            gold -= 50
+        elif selection == "exit":
+            return inventory, gold
+        else:
+            print("Invalid input %r" % selection)
+        
 
 
     
