@@ -4,11 +4,14 @@ from classes import Medic
 from enemies import Goblin
 from enemies import Shadow
 from enemies import Zombie
+from enemy_select import enemy_select
+
 import random
 
 def battle():
     enemy = enemy_select()
     print(enemy.isalive)
+    from run import hero
     while enemy.isalive == True and hero.isalive == True:
         hero.print_status()
         enemy.print_status()
@@ -35,3 +38,4 @@ def battle():
             return "dead"
 
         print()
+        
