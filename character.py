@@ -15,21 +15,25 @@ class Character:
 
     def choose_direction(self, direction):
         while True:
-            if direction == "W" or direction == 1:
+            if direction == "w" or direction == 1:
                 return "up"
-            elif direction == "S" or direction == 2:
+            elif direction == "s" or direction == 2:
                 return "down"
-            elif direction == "A" or direction == 3:
+            elif direction == "a" or direction == 3:
                 return "left"
-            elif direction == "D" or direction == 4:
+            elif direction == "d" or direction == 4:
                 return "right"
             else:
                 print('Invalid input\n')
                 direction = input("Choose a direction")
 
-    def attack(self, opponent):
-        attack_direction = self.choose_direction(input("Pick a direction to attack (use WASD)"))
-        block_direction = opponent.choose_direction(random.randint(1, 4))
+    def attack(self, opponent, hero, enemy):
+        if self == hero:
+            attack_direction = self.choose_direction((input("Pick a direction to attack (use WASD)")).lower())
+            block_direction = opponent.choose_direction(random.randint(1, 4))
+        else:
+            block_direction = self.choose_direction((input("Pick a direction to block (use WASD)")).lower())
+            attack_direction = self.choose_direction(random.randint(1, 4))
         if attack_direction == block_direction:
             print("The {} blocked the attack!")
         else:
