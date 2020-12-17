@@ -28,6 +28,8 @@ def main():
             print("Invalid input %r" % selection)
 
 
+
 end = False
+
 hero = character_select() 
 main()
