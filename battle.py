@@ -22,7 +22,7 @@ def battle(hero):
         print("> ",)
         user_input = input()
         if user_input == "1":
-            hero.attack(enemy)
+            hero.attack(enemy, hero, enemy)
         elif user_input == "2":
             pass
         elif user_input == "3":
@@ -30,8 +30,9 @@ def battle(hero):
             break
         else:
             print("Invalid input %r" % user_input)
+
         if enemy.isalive == True:
-            enemy.attack(hero)
+            enemy.attack(hero, hero, enemy)
         
         if hero.alive == False:
             return "dead"
