@@ -14,7 +14,7 @@ class Character:
             self.isalive = False
 
     def print_status(self):
-        print("The %s has %d health and has a damage modifier of %d" % (self, self.health, self.damage_modifier))
+        print("The {} has {} health and has a damage modifier of {}".format(self, self.health, self.damage_modifier))
 
     def choose_direction(self, direction):
         while True:

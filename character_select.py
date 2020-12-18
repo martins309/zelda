@@ -25,11 +25,11 @@ def character_select():
         
         elif selection == '3':
             print('You chose the Thief!')
-            return Thief(6, 1.2, Sword(), 50)
+            return Thief(6, 1.25, Sword(), 50)
 
         elif selection == '4':
             print('You chose the Dwarf!')
-            return Dwarf(7, 1.4, Sword(), 40)
+            return Dwarf(7, 1.5, Sword(), 40)
         
         elif selection == '5':
             print('You chose the King!!')

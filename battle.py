@@ -33,9 +33,13 @@ def battle(hero):
 
         if enemy.isalive == True:
             enemy.attack(hero, hero, enemy)
-        
+
+        hero.alive
         if hero.alive == False:
+            print("Game Over")
             return "dead"
+        else:
+            pass
 
         print()
         
