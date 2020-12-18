@@ -9,36 +9,35 @@ import random
 from character_select import character_select
 from battle import battle
 from shop import shop
-
-
+from weapons import Weapons
+from weapons import Sword
+from weapons import Axe
+from weapons import Golden_Bow
+from selection import selection
 
 def main():
     status = ''
     while status != "dead":
         print('What do you want to do?')
-        print('1. Battle')
-        print('2. Shop')
-        print('3. inventory')
-        selection = input()
-        if selection == '1':
+        select = selection(["Battle", "Shop", "Inventory"], 0)
+        if select[1] == 'Battle':
             print('You go to battle!')
             status = battle(hero)
-        elif selection == '2':
+        elif select[1] == 'Shop':
+            print('You go to the shop!')
             wgi = shop(hero.gold, hero.inventory)
             hero.gold = wgi[0]
             hero.inventory = wgi[1]
-            print('You go to the shop!')
-        elif selection == '3':
+        elif select[1] == 'Inventory':
             wgi = inventory(hero.weapon, hero.gold, hero.inventory)
             hero.weapon = wgi[0]
             hero.gold = wgi[1]
             hero.inventory = wgi[2]
         else:
-            print("Invalid input %r" % selection)
+            print("Invalid input %r" % select[1])
 
 
 
 end = False
-
 hero = character_select() 
 main()
