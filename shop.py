@@ -7,32 +7,34 @@ from weapons import Golden_Bow
 
 # class shop applies to all weapons
 def weapons_selection():
-    return Sword, Axe, Golden_Bow
+    return [Sword(), Axe(), Golden_Bow()]
 
 def shop(gold, inventory):
     while True:
         print("Current Gold: {}".format(gold))
         print("Select your choice of weapon! (type exit to leave)")
-        print("1. Sword, 10 gold")
-        print("2. Axe, 20 gold")
-        print("3. Golden Bow, 50 gold")
+        shop_total = len(weapons_selection())
+        counter = 1
+        while counter <= shop_total:
+            print("{}. {}, {} gold".format(counter, weapons_selection()[counter-1], weapons_selection()[counter-1].price))
+            counter += 1
         selection = input()
-        if selection == "1" and gold >= 10:
-            print("You bought the Sword for 10 gold")
-            inventory.append(Sword)
-            gold -= 10
-        elif selection == "2" and gold >= 20:
-            print("You bought the Axe for 20 gold!")
-            inventory.append(Axe)
-            gold -= 20
-        elif selection == "3" and gold >= 50:
-            print("You bought the Golden Bow for 50 gold!")
-            inventory.append(Golden_Bow)
-            gold -= 50
-        elif selection == "exit":
-            return inventory, gold
-        else:
-            print("Invalid input %r" % selection)
+        try:
+            selection = int(selection)
+            if selection <= shop_total and selection > 0:
+                if gold >= weapons_selection()[selection-1].price:
+                    print("You bought the {} for {} gold".format(weapons_selection()[selection-1], weapons_selection()[selection-1].price))
+                    inventory.append(weapons_selection()[selection-1])
+                    gold -= weapons_selection()[selection-1].price
+                else:
+                    print("Not enough gold!")
+            else:
+                print("Invalid input %r" % selection)
+        except:
+            if selection == "exit":
+                return gold, inventory
+            else:
+                print("Invalid input %r" % selection)
         
 
 
