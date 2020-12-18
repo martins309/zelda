@@ -1,9 +1,9 @@
 import random
 
 class Character:
-    def __init__(self, health, power, default_weapon, default_gold):
+    def __init__(self, health, damage_modifier, default_weapon, default_gold):
         self.health = health
-        self.power = power
+        self.damage_modifier = damage_modifier
         self.isalive = True
         self.weapon = default_weapon
         self.gold = default_gold
@@ -14,7 +14,7 @@ class Character:
             self.isalive = False
 
     def print_status(self):
-        print("The %s has %d health and %d power." % (self, self.health, self.power))
+        print("The %s has %d health and has a damage modifier of %d" % (self, self.health, self.damage_modifier))
 
     def choose_direction(self, direction):
         while True:
@@ -38,10 +38,10 @@ class Character:
             block_direction = self.choose_direction((input("Pick a direction to block (use WASD)")).lower())
             attack_direction = self.choose_direction(random.randint(1, 4))
         if attack_direction == block_direction:
-            print("The {} blocked the attack!")
+            print("The {} blocked the attack!".format(opponent))
         else:
-            opponent.health -= self.power
-            print("The %s does %d damage to the %s." % (self, self.power, opponent))
+            opponent.health -= round(self.weapon.power * self.damage_modifier)
+            print("The %s does %d damage to the %s." % (self, round(self.weapon.power * self.damage_modifier), opponent))
             opponent.alive()
             if opponent.isalive == False:
                 print("The %s is dead." % opponent)

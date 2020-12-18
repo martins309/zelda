@@ -2,6 +2,13 @@ class Weapons:
     def __init__(self, power, price):
         self.power = power
 
+class Fist(Weapons):
+    def __init__(self):
+        self.power = 1
+        self.price = 0
+    def __str__(self):
+        return "Fist"
+
 class Sword(Weapons):
     def __init__(self):
         self.power = 4
