@@ -7,8 +7,8 @@ def inventory(weapon, gold, inventory):
         print('Here is your current weapon: {}'.format(weapon))
         print('Here is your current gold: {}'.format(gold))
         print('Here is your inventory:')
-        print(inventory)
-
+        for item in inventory:
+            print(item)
         print('What would you like to do?')
         print('1. change weapon')
         print('2. drop item')
@@ -26,6 +26,7 @@ def inventory(weapon, gold, inventory):
 def equip_weapon(weapon, inventory):
     while True:
         equip = input('which weapon would you like to equip? (type exit to cancel)')
+        print(equip)
         if equip in inventory:
             print('equipped the {}'.format(equip))
             store = weapon

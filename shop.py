@@ -7,7 +7,10 @@ from weapons import Golden_Bow
 
 # class shop applies to all weapons
 def weapons_selection():
-    return [Sword(), Axe(), Golden_Bow()]
+    sword = Sword()
+    axe = Axe()
+    bow = Golden_Bow()
+    return [sword, axe, bow]
 
 def shop(gold, inventory):
     while True:

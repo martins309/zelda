@@ -13,15 +13,15 @@ class Warrior(Character):
             block_direction = self.choose_direction((input("Pick a direction to block (use WASD)")).lower())
             attack_direction = self.choose_direction(random.randint(1, 4))
         if attack_direction == block_direction:
-            print("The {} blocked the attack!")
+            print("The {} blocked the attack!".format(opponent))
         else:
             modifier = random.randint(1, 5)
             if modifier == 5:
                 bonus_damage = 2
             else:
                 bonus_damage = 1
-            opponent.health -= self.power*bonus_damage
-            print("The %s does %d damage to the %s." % (self, self.power*bonus_damage, opponent))
+            opponent.health -= round(self.weapon.power * self.damage_modifier * bonus_damage)
+            print("The %s does %d damage to the %s." % (self, round(self.weapon.power * self.damage_modifier * bonus_damage), opponent))
             opponent.alive()
             if opponent.isalive == False:
                 print("The %s is dead." % opponent)
@@ -55,8 +55,8 @@ class King(Character):
             bonus_damage = 10
         else:
             bonus_damage = 7
-        opponent.health -= self.power*bonus_damage
-        print("The %s does %d damage to the %s." % (self, self.power*bonus_damage, opponent))
+        opponent.health -= self.damage_modifier*bonus_damage
+        print("The %s does %d damage to the %s." % (self, self.damage_modifier*bonus_damage, opponent))
         opponent.alive()
         if opponent.isalive == False:
             print("The %s is dead." % opponent)
