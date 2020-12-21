@@ -8,6 +8,7 @@ class Character:
         self.weapon = default_weapon
         self.gold = default_gold
         self.inventory = ['a', 's', 'w', 'd']
+        self.experience = [10]
 
     def alive(self):
         if self.health < 1:
@@ -45,3 +46,8 @@ class Character:
             opponent.alive()
             if opponent.isalive == False:
                 print("The %s is dead." % opponent)
+
+    def experience(self):   
+        self.experience += 10
+        print("You have added 10 points")
+     
