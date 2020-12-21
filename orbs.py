@@ -5,22 +5,22 @@ class Orbs:
 
 class Golden_orb(Orbs):
     def __init__(self):
-        self.health = 7
+        self.health = 20
         self.price = 10
 
 class Silver_orb(Orbs):
     def __init__(self):
-        self.health = 5
+        self.health = 10
         self.price = 7
 
 class Bronze_orb(Orbs):
     def __init__(self):
-        self.health = 3
+        self.health = 5
         self.price = 5
 
 class Diamond_orb(Orbs):
     def __init__(self):
-        self.health = 10
+        self.health = 50
         self.price = 20
 
 
