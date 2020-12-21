@@ -6,6 +6,12 @@ from classes import Dwarf
 from classes import King
 from weapons import Weapons
 from weapons import Sword
+
+def title_screen():
+    os.system('clear')
+    print('###############################')
+    print('#Welcome to the text Zelda RPG#')
+    print('###############################')
 def character_select():
     while True:
         print('Choose your character:')
