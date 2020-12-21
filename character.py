@@ -72,7 +72,7 @@ class Character:
                 bdamage = float(bonus_damage_multiplier)
             else:
                 bdamage = 1
-            opponent.health -= round(self.weapon.power * self.damage_modifier * bdamage)
+            opponent.health -= round(self.equipped_weapon.power * self.damage_modifier * bdamage)
             print("The %s does %d damage to the %s." % (self, round(self.weapon.power * self.damage_modifier * bdamage), opponent))
             opponent.alive()
             if opponent.isalive == False:

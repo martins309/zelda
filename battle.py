@@ -46,8 +46,7 @@ def battle(hero):
         if enemy.isalive == False:
             hero.pillage(enemy)
 
-        hero.alive
-        if hero.alive == False:
+        if hero.isalive == False:
             print("Game Over")
             return "dead"
         else:
