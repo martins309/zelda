@@ -11,7 +11,7 @@ class Fist(Weapons):
 class Knife(Weapons):
     def __init__(self):
         self.power = 3
-        self.price = 7
+        self.price = 5
 
 class Sword(Weapons):
     def __init__(self):
@@ -20,12 +20,12 @@ class Sword(Weapons):
 
 class Axe(Weapons):
     def __init__(self):
-        self.power = 8
+        self.power = 6
         self.price = 20
     
 class Golden_Bow(Weapons):
     def __init__(self):
-        self.power = 6
+        self.power = 8
         self.price = 50
 
 class Club(Weapons):

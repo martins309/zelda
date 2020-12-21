@@ -29,11 +29,11 @@ def enemy_select():
         print('7. Random')
         selection = input()
         if selection == '7':
-            selection = random.randint(1, 6)
+            selection = str(random.randint(1, 6))
 
         if selection == '1':
             print('You chose the Goblin enemy!')
-            return Goblin(6, 1, "Sword", Sword(), 0, 1, 2)
+            return Goblin(5, 1, "Sword", Sword(), 0, 1, 2)
         elif selection == '2':
             print('You chose the Shadow enemy!')
             return Shadow(1, 1, "Fist", Fist(), 0, 1, 10)
