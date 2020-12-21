@@ -23,12 +23,12 @@ def battle(hero):
         print("What do you want to do?")
         print("1. fight")
         print("2. do nothing")
-        print("3.use an item")
+        print("3. use an item")
         print("4. flee")
         print("> ",)
         user_input = input()
         if user_input == "1":
-            hero.attack(enemy, hero, enemy)
+            hero.attack(enemy, hero, enemy, hero.bonus_damage_percent, hero.bonus_damage_multiplier)
         elif user_input == "2":
             pass
         elif user_input == "3":
@@ -40,7 +40,9 @@ def battle(hero):
             print("Invalid input %r" % user_input)
 
         if enemy.isalive == True:
-            enemy.attack(hero, hero, enemy)
+            enemy.attack(hero, hero, enemy, enemy.bonus_damage_percent, enemy.bonus_damage_multiplier)
+        if enemy.isalive == False:
+            hero.pillage(enemy)
 
         hero.alive
         if hero.alive == False:

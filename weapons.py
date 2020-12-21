@@ -8,6 +8,11 @@ class Fist(Weapons):
         self.power = 1
         self.price = 0
 
+class Knife(Weapons):
+    def __init__(self):
+        self.power = 3
+        self.price = 7
+
 class Sword(Weapons):
     def __init__(self):
         self.power = 4
@@ -22,26 +27,18 @@ class Golden_Bow(Weapons):
     def __init__(self):
         self.power = 6
         self.price = 50
-    def __str__(self):
-        return "Golden Bow"
 
 class Club(Weapons):
-    def __init(self):
-        self.power = 7
-        self.price = 12
-    def __str__(self):
-        return "Club"
+    def __init__(self):
+        self.power = 2
+        self.price = 5
 
 class Flail(Weapons):
     def __init__(self):
-        self.power = 30
-        self.price = 30
-    def __str__(self):
-        return "Flail"
+        self.power = 10
+        self.price = 100
 
 class FireBreath(Weapons):
     def __init__(self):
-        self.power = 50
-        self.price = 50
-    def __str__(self):
-        return "FireBreath"
+        self.power = 1
+        self.price = 0

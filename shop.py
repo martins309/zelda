@@ -1,9 +1,13 @@
 # Weapons Setup
 from character import Character
 from weapons import Weapons
+from weapons import Fist
+from weapons import Knife
 from weapons import Sword
 from weapons import Axe
 from weapons import Golden_Bow
+from weapons import Club
+from weapons import Flail
 from orbs import Orbs
 from orbs import Diamond_orb
 from orbs import Golden_orb
@@ -12,10 +16,10 @@ from orbs import Bronze_orb
 
 # class shop applies to all weapons
 def stock():
-    return [Sword(), Axe(), Golden_Bow(), Diamond_orb(), Golden_orb(), Silver_orb(), Bronze_orb()]
+    return [Fist(), Knife(), Sword(), Axe(), Golden_Bow(), Flail(), Diamond_orb(), Golden_orb(), Silver_orb(), Bronze_orb()]
 
 def stock_names():
-    return ["Sword", "Axe", "Golden Bow", "Diamond_orb", "Golden_orb", "Silver_orb", "Bronze_orb"]
+    return ["Fist", "Knife", "Sword", "Axe", "Golden Bow", "Flail", "Diamond Orb", "Golden Orb", "Silver Orb", "Bronze Orb"]
 
 
 
@@ -42,7 +46,7 @@ def shop(gold, inventory):
                     while True:
                         user_input = input("Would you like to buy anything else? (Y/N)").upper()
                         if user_input == 'Y':
-                            pass
+                            break
                         elif user_input == 'N':
                             return gold, inventory
                         else:
