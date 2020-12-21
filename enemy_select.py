@@ -25,10 +25,10 @@ def enemy_select():
         selection = input()
         if selection == '1':
             print('You chose the Goblin enemy!')
-            return Goblin(6, 1, Sword(), 5)
+            return Goblin(6, 1, Sword, Sword(), 5)
         elif selection == '2':
             print('You chose the Shadow enemy!')
-            return Shadow(1, 1, Fist(), 1)
+            return Shadow(1, 1, Fist, Fist(), 1)
         elif selection == '3':
             print('You chose the Zombie enemy!')
             return Zombie(5, 1, Fist(), 1)
