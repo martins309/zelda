@@ -5,6 +5,11 @@ from enemies import Goblin
 from enemies import Shadow
 from enemies import Zombie
 from enemy_select import enemy_select
+from orbs import Orbs
+from orbs import Diamond_orb
+from orbs import Golden_orb
+from orbs import Silver_orb
+from orbs import Bronze_orb
 
 import random
 
@@ -18,7 +23,8 @@ def battle(hero):
         print("What do you want to do?")
         print("1. fight")
         print("2. do nothing")
-        print("3. flee")
+        print("3.use an item")
+        print("4. flee")
         print("> ",)
         user_input = input()
         if user_input == "1":
@@ -26,6 +32,8 @@ def battle(hero):
         elif user_input == "2":
             pass
         elif user_input == "3":
+            hero.use_item()
+        elif user_input == "4":
             print("Goodbye.")
             break
         else:
