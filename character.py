@@ -13,7 +13,7 @@ from orbs import Diamond_orb
 from orbs import Golden_orb
 from orbs import Silver_orb
 from orbs import Bronze_orb
-
+from inventory import inventory
 
 class Character:
     def __init__(self, health, damage_modifier, default_weapon_name, default_weapon, bonus_damage_percent = 0, bonus_damage_multiplier = 1, default_gold = 0, looting_modifier = 1):
@@ -38,9 +38,20 @@ class Character:
     def print_status(self):
         print("The {} has {} health and has a damage modifier of {}".format(self, self.health, self.damage_modifier))
 
+    def print_inventory(self):
+        keys = list(self.inventory.keys())
+        counter = 0
+        for item in keys:
+            key_length = len(self.inventory[keys[counter]])
+            if key_length ==  1:
+                print(item, end = ', ')
+            else:
+                print("{} x{}".format(item, key_length), end = ', ')
+            counter += 1
+        print()
+
     def choose_direction(self, direction):
         while True:
-            print(direction)
             if direction == "w" or direction == 1:
                 return "up"
             elif direction == "s" or direction == 2:
@@ -76,12 +87,11 @@ class Character:
 
     def use_item(self):
         print("Current inventory:")
-        keys = list(self.inventory.keys())
-        print(keys)
+        self.print_inventory()
         while True:
             input1 = input("Which item would you like to use? (type 'exit' to cancel)")
             if input1 in self.inventory:
-                if issubclass(type(self.inventory[input1]), Weapons):
+                if issubclass(type(self.inventory[input1][0]), Weapons):
                     while True:
                         input2 = input("Would you like to change your weapon to {} (Y/N)".format(input1)).upper()
                         if input2 == "Y":
@@ -95,10 +105,10 @@ class Character:
                         else:
                             print("Invalid input %r" % input2)
                     break
-                elif issubclass(type(self.inventory[input1]), Orbs):
-                    print("used the {} to heal {} health".format(input1, self.inventory[input1].health))
-                    self.health += self.inventory[input1].health
-                    self.inventory.pop(input1)[0]
+                elif issubclass(type(self.inventory[input1][0]), Orbs):
+                    print("used the {} to heal {} health".format(input1, self.inventory[input1][0].health))
+                    self.health += self.inventory[input1][0].health
+                    self.inventory[input1].pop(0)
                     if len(self.inventory[input1]) == 0:
                         del self.inventory[input1]
                     break
