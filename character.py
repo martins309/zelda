@@ -16,7 +16,7 @@ from orbs import Bronze_orb
 
 
 class Character:
-    def __init__(self, health, damage_modifier, default_weapon_name, default_weapon, bonus_damage_percent = 0, bonus_damage_multiplier = 1, default_gold = 0, looting_modifier = 1):
+    def __init__(self, health, damage_modifier, default_weapon_name, default_weapon, bonus_damage_percent = 0, bonus_damage_multiplier = 1, default_gold = 0, looting_modifier = 1, looting_percentage = ()):
         self.health = health
         self.damage_modifier = damage_modifier
         self.isalive = True
@@ -30,6 +30,7 @@ class Character:
         self.equipped_weapon = default_weapon_name
         self.bonus_damage_percent = bonus_damage_percent
         self.bonus_damage_multiplier = bonus_damage_multiplier
+        self.looting_percentage = looting_percentage
 
     def alive(self):
         if self.health < 1:
@@ -69,9 +70,9 @@ class Character:
                 bdamage = 1
             opponent.health -= round(self.weapon.power * self.damage_modifier * bdamage)
             print("The %s does %d damage to the %s." % (self, round(self.weapon.power * self.damage_modifier * bdamage), opponent))
-            opponent.alive()
-            if opponent.isalive == False:
-                print("The %s is dead." % opponent)
+            opponent.alive() 
+            if opponent.isalive == False: 
+                print("The %s is dead." % opponent) 
 
     def use_item(self):
         print("Current inventory:")
@@ -108,3 +109,24 @@ class Character:
     def pillage(self, enemy):
         self.gold += enemy.gold * self.looting_modifier
         print("The {} looted {} gold from the corpse of the {}".format(self, enemy.gold * self.looting_modifier, enemy))
+    
+    def pillage_statistics(self):
+            modifier = random.randint = (1, 100)
+            if random.randint <= self.looting_percentage:
+                return True
+            else:
+                return False 
+
+    def steal(self, opponent):
+        self.gold += opponent.gold * self.looting_modifier
+        print("The %d stole %d from you".format(self, opponent.gold * self.looting_modifier))
+
+
+        
+        
+
+    
+            
+
+    
+    

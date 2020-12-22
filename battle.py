@@ -25,7 +25,7 @@ def battle(hero):
         print("2. do nothing")
         print("3. use an item")
         print("4. flee")
-        print("> ",)
+        print("5. Steal") 
         user_input = input()
         if user_input == "1":
             hero.attack(enemy, hero, enemy, hero.bonus_damage_percent, hero.bonus_damage_multiplier)
@@ -36,6 +36,8 @@ def battle(hero):
         elif user_input == "4":
             print("Goodbye.")
             break
+        elif user_input == "5":
+            hero.steal(enemy, hero.looting_percentage, hero.looting_modfier)
         else:
             print("Invalid input %r" % user_input)
 
@@ -43,6 +45,7 @@ def battle(hero):
             enemy.attack(hero, hero, enemy, enemy.bonus_damage_percent, enemy.bonus_damage_multiplier)
         if enemy.isalive == False:
             hero.pillage(enemy)
+             
 
         hero.alive
         if hero.alive == False:
