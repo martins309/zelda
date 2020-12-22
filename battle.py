@@ -12,6 +12,8 @@ from orbs import Silver_orb
 from orbs import Bronze_orb
 
 import random
+# define title screen
+
 
 def battle(hero):
     enemy = enemy_select()
@@ -47,8 +49,7 @@ def battle(hero):
             hero.pillage(enemy)
              
 
-        hero.alive
-        if hero.alive == False:
+        if hero.isalive == False:
             print("Game Over")
             return "dead"
         else:

@@ -2,13 +2,12 @@
 from weapons import Weapons
 from weapons import Sword
 
-def inventory(equipped_weapon, gold, inventory):
+def inventory(equipped_weapon, gold, inventory, hero):
     while True:
         print('Here is your current weapon: {}'.format(equipped_weapon))
         print('Here is your current gold: {}'.format(gold))
         print('Here is your inventory:')
-        keys = list(inventory.keys())
-        print(keys)
+        hero.print_inventory()
         print('What would you like to do? (type \'exit\' to exit)')
         print('1. change weapon')
         print('2. drop item')
@@ -49,14 +48,17 @@ def drop_item(equipped_weapon, inventory):
     while True:
         dropped_item = input('which item would you like to drop? (type exit to cancel)')
         if dropped_item in inventory:
-            if dropped_item != equipped_weapon:
-                print('dropped the {}'.format(dropped_item))
-                inventory.pop(dropped_item)
+            if dropped_item == equipped_weapon and len(inventory[dropped_item]) == 1:
+                print("Cannot drop the currently equipped weapon!")
                 return equipped_weapon, inventory
             else:
-                print("Cannot drop the currently equipped weapon!")
+                print('dropped the {}'.format(dropped_item))
+                inventory[dropped_item].pop(0)
+                if len(inventory[dropped_item]) == 0:
+                    del inventory[dropped_item]
                 return equipped_weapon, inventory
         elif dropped_item.lower() == 'exit':
             return equipped_weapon, inventory
         else:
             print('Item not in inventory, please try again')
+

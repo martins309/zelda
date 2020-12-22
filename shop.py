@@ -23,12 +23,11 @@ def stock_names():
 
 
 
-def shop(gold, inventory):
+def shop(gold, inventory, hero):
     while True:
         print("Current Gold: {}".format(gold))
         print('Current Inventory:')
-        keys = list(inventory.keys())
-        print(keys)
+        hero.print_inventory()
         print("Select your choice of item! (type exit to leave)")
         shop_total = len(stock())
         counter = 1
@@ -41,7 +40,10 @@ def shop(gold, inventory):
             if selection <= shop_total and selection > 0:
                 if gold >= stock()[selection-1].price:
                     print("You bought the {} for {} gold".format(stock_names()[selection-1], stock()[selection-1].price))
-                    inventory[stock_names()[selection-1]] = stock()[selection-1]
+                    if stock_names()[selection-1] in inventory:
+                        inventory[stock_names()[selection-1]].append(stock()[selection-1])
+                    else:
+                        inventory[stock_names()[selection-1]] = [stock()[selection-1]]
                     gold -= stock()[selection-1].price
                     while True:
                         user_input = input("Would you like to buy anything else? (Y/N)").upper()
