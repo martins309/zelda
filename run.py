@@ -15,6 +15,12 @@ from weapons import Axe
 from weapons import Golden_Bow
 from selection import selection
 
+def title_screen():
+    print(###########################)
+    print(#### Welcome to Merikh ####)
+    print(###########################)
+    print(###### By Team Yoshi ######)
+
 def main():
     status = ''
     while status != "dead":
@@ -41,7 +47,7 @@ def main():
             print("Invalid input")
 
 
-
+screen_title = screen_title()
 end = False
 hero = character_select() 
 main()
