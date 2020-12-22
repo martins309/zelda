@@ -12,6 +12,8 @@ from orbs import Silver_orb
 from orbs import Bronze_orb
 
 import random
+# define title screen
+
 
 def battle(hero):
     enemy = enemy_select()

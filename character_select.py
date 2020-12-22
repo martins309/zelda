@@ -9,10 +9,22 @@ from weapons import Weapons
 from weapons import Fist
 from weapons import Knife
 from weapons import Sword
+<<<<<<< HEAD
+
+
+def title_screen():
+    os.system('clear')
+    print('###############################')
+    print('#Welcome to the text Zelda RPG#')
+    print('######Team Zeldaland RPG!######')
+    print('###############################')
+
+=======
 from weapons import Axe
 from weapons import Golden_Bow
 from weapons import Club
 from weapons import Flail
+>>>>>>> 73abe4d7905ec2cf3ce547be765a8ebafd370fb3
 
 def character_select():
     while True:
