@@ -23,12 +23,11 @@ def stock_names():
 
 
 
-def shop(gold, inventory):
+def shop(gold, inventory, hero):
     while True:
         print("Current Gold: {}".format(gold))
         print('Current Inventory:')
-        keys = list(inventory.keys())
-        print(keys)
+        hero.print_inventory()
         print("Select your choice of item! (type exit to leave)")
         shop_total = len(stock())
         counter = 1
