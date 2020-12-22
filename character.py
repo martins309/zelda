@@ -22,10 +22,6 @@ class Character:
         self.isalive = True
         self.weapon = default_weapon
         self.gold = default_gold
-<<<<<<< HEAD
-        self.inventory = ['a', 's', 'w', 'd']
-        self.experience = [10]
-=======
         self.looting_modifier = looting_modifier
         self.inventory = {
             default_weapon_name: default_weapon,
@@ -34,7 +30,6 @@ class Character:
         self.equipped_weapon = default_weapon_name
         self.bonus_damage_percent = bonus_damage_percent
         self.bonus_damage_multiplier = bonus_damage_multiplier
->>>>>>> 73abe4d7905ec2cf3ce547be765a8ebafd370fb3
 
     def alive(self):
         if self.health < 1:
@@ -78,12 +73,6 @@ class Character:
             if opponent.isalive == False:
                 print("The %s is dead." % opponent)
 
-<<<<<<< HEAD
-    def experience(self):   
-        self.experience += 10
-        print("You have added 10 points")
-     
-=======
     def use_item(self):
         print("Current inventory:")
         keys = list(self.inventory.keys())
@@ -119,4 +108,3 @@ class Character:
     def pillage(self, enemy):
         self.gold += enemy.gold * self.looting_modifier
         print("The {} looted {} gold from the corpse of the {}".format(self, enemy.gold * self.looting_modifier, enemy))
->>>>>>> 73abe4d7905ec2cf3ce547be765a8ebafd370fb3
