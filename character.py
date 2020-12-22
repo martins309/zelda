@@ -28,8 +28,8 @@ class Character:
 =======
         self.looting_modifier = looting_modifier
         self.inventory = {
-            default_weapon_name: default_weapon,
-            "Fist": Fist()
+            default_weapon_name: [default_weapon],
+            "Fist": [Fist()]
             }
         self.equipped_weapon = default_weapon_name
         self.bonus_damage_percent = bonus_damage_percent
@@ -45,6 +45,7 @@ class Character:
 
     def choose_direction(self, direction):
         while True:
+            print(direction)
             if direction == "w" or direction == 1:
                 return "up"
             elif direction == "s" or direction == 2:
@@ -54,15 +55,15 @@ class Character:
             elif direction == "d" or direction == 4:
                 return "right"
             else:
-                print('Invalid input\n')
+                print("Invalid input")
                 direction = input("Choose a direction")
 
     def attack(self, opponent, hero, enemy, bonus_damage_percent, bonus_damage_multiplier):
         if self == hero:
-            attack_direction = self.choose_direction((input("Pick a direction to attack (use WASD)")).lower())
-            block_direction = opponent.choose_direction(random.randint(1, 4))
+            attack_direction = self.choose_direction(input("Pick a direction to attack (use WASD)").lower())
+            block_direction = self.choose_direction(random.randint(1, 4))
         else:
-            block_direction = self.choose_direction((input("Pick a direction to block (use WASD)")).lower())
+            block_direction = self.choose_direction(input("Pick a direction to block (use WASD)").lower())
             attack_direction = self.choose_direction(random.randint(1, 4))
         if attack_direction == block_direction:
             print("The {} blocked the attack!".format(opponent))
@@ -72,8 +73,8 @@ class Character:
                 bdamage = float(bonus_damage_multiplier)
             else:
                 bdamage = 1
-            opponent.health -= round(self.equipped_weapon.power * self.damage_modifier * bdamage)
-            print("The %s does %d damage to the %s." % (self, round(self.weapon.power * self.damage_modifier * bdamage), opponent))
+            opponent.health -= round(self.inventory[self.equipped_weapon][0].power * self.damage_modifier * bdamage)
+            print("The {} does {} damage to the {} with the {}.".format(self, round(self.inventory[self.equipped_weapon][0].power * self.damage_modifier * bdamage), opponent, self.equipped_weapon))
             opponent.alive()
             if opponent.isalive == False:
                 print("The %s is dead." % opponent)
@@ -108,6 +109,9 @@ class Character:
                 elif issubclass(type(self.inventory[input1]), Orbs):
                     print("used the {} to heal {} health".format(input1, self.inventory[input1].health))
                     self.health += self.inventory[input1].health
+                    self.inventory.pop(input1)[0]
+                    if len(self.inventory[input1]) == 0:
+                        del self.inventory[input1]
                     break
                 else:
                     pass

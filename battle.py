@@ -27,7 +27,6 @@ def battle(hero):
         print("2. do nothing")
         print("3. use an item")
         print("4. flee")
-        print("> ",)
         user_input = input()
         if user_input == "1":
             hero.attack(enemy, hero, enemy, hero.bonus_damage_percent, hero.bonus_damage_multiplier)
