@@ -40,7 +40,7 @@ class Character:
 
     def choose_direction(self, direction):
         while True:
-            
+            print(direction)
             if direction == "w" or direction == 1:
                 return "up"
             elif direction == "s" or direction == 2:
@@ -68,8 +68,8 @@ class Character:
                 bdamage = float(bonus_damage_multiplier)
             else:
                 bdamage = 1
-            opponent.health -= round(self.equipped_weapon[0].power * self.damage_modifier * bdamage)
-            print("The {} does {} damage to the {} with the {}.".format(self, round(self.equipped_weapon[0].power * self.damage_modifier * bdamage), opponent, self.equipped_weapon))
+            opponent.health -= round(self.inventory[self.equipped_weapon][0].power * self.damage_modifier * bdamage)
+            print("The {} does {} damage to the {} with the {}.".format(self, round(self.inventory[self.equipped_weapon][0].power * self.damage_modifier * bdamage), opponent, self.equipped_weapon))
             opponent.alive()
             if opponent.isalive == False:
                 print("The %s is dead." % opponent)
