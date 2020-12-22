@@ -24,6 +24,7 @@ def main():
             if select[1] == 'Battle':
                 print('You go to battle!')
                 status = battle(hero)
+                print('Testing')
                 print(status)
             elif select[1] == 'Shop':
                 print('You go to the shop!')
@@ -38,6 +39,7 @@ def main():
             else:
                 print("Invalid input %r" % select[1])
         except:
+            print('test')
             print("Invalid input")
 
 
