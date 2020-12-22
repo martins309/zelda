@@ -14,6 +14,7 @@ from weapons import Golden_Bow
 from weapons import Club
 from weapons import Flail
 
+
 def character_select():
     while True:
         print('Choose your character:')
@@ -26,31 +27,31 @@ def character_select():
 
         # arguments for classes: (health, damage modifier, default weapon name, 
         # default weapon object, bonus damage percent, bonus damage multiplier,
-        # starting gold, looting modifier)
+        # starting gold, looting modifier, looting_percentage)
 
         if selection == '1':
             print('You chose the Warrior class!')
-            return Warrior(50, 1.5, "Sword", Sword(), 20, 2, 10, 1)
+            return Warrior(50, 1.5, "Sword", Sword(), 20, 2, 10, 1, 20)
         
         elif selection == '2':
             print('You chose the Medic class!')
-            return Medic(40, 1.0, "Sword", Sword(), 5, 2, 1)
+            return Medic(40, 1.0, "Sword", Sword(), 5, 2, 1, 30)
         
         elif selection == '3':
             print('You chose the Thief!')
-            return Thief(30, 2, "Knife", Knife(), 10, 2.5, 50, 2)
+            return Thief(30, 2, "Knife", Knife(), 10, 2.5, 50, 2, 70)
 
         elif selection == '4':
             print('You chose the Dwarf!')
-            return Dwarf(30, 2, "Axe", Axe(), 25, 2.5, 1.5)
+            return Dwarf(30, 2, "Axe", Axe(), 25, 2.5, 1.5, 50)
 
         elif selection == '5':
             print('You chose the Brawler!')
-            return Brawler(100, 5, "Fist", Fist(), 50, 2.5, 0, .25)
+            return Brawler(100, 5, "Fist", Fist(), 50, 2.5, 0, .25, 10)
 
         elif selection == '6':
             print('You chose the King!!')
-            return King(100, 2, "Golden Bow", Golden_Bow(), 50, 2, 1000, 10)
+            return King(100, 2, "Golden Bow", Golden_Bow(), 50, 2, 1000, 10, 40)
 
         else:
             print("Invalid input %r" % selection)
