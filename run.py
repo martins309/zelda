@@ -16,10 +16,10 @@ from weapons import Golden_Bow
 from selection import selection
 
 def title_screen():
-    print(###########################)
-    print(#### Welcome to Merikh ####)
-    print(###########################)
-    print(###### By Team Yoshi ######)
+    print("###########################")
+    print("#### Welcome to Merikh ####")
+    print("###########################")
+    print("###### By Team Yoshi ######")
 
 def main():
     status = ''
@@ -47,7 +47,7 @@ def main():
             print("Invalid input")
 
 
-screen_title = screen_title()
+title = title_screen()
 end = False
 hero = character_select() 
 main()
