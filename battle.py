@@ -39,7 +39,7 @@ def battle(hero):
             print("Goodbye.")
             break
         elif user_input == "5":
-            hero.steal(enemy, hero.looting_percentage, hero.looting_modfier)
+            hero.steal(enemy)
         else:
             print("Invalid input %r" % user_input)
 

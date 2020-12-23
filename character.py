@@ -133,5 +133,7 @@ class Character:
 
     def steal(self, opponent):
         self.gold += opponent.gold * self.looting_modifier
-        print("The %d stole %d from you".format(self, opponent.gold * self.looting_modifier))
+        print("The {} stole {} from you".format(self, opponent.gold * self.looting_modifier))
+    
+    print()
 
