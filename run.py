@@ -1,4 +1,4 @@
-from character import Character
+;from character import Character
 from classes import Warrior
 from classes import Medic
 from enemies import Goblin
